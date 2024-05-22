@@ -3,12 +3,19 @@ FROM n8nio/n8n:latest
 # Debug message
 RUN echo "Starting to build Dockerfile..."
 
-# Install ffmpeg
+# Installer les dépendances nécessaires
 USER root
-RUN echo "Updating apk and installing ffmpeg..." && \
+RUN echo "Updating apk and installing ffmpeg and Node.js..." && \
     apk update && \
     apk add --no-cache ffmpeg && \
-    echo "ffmpeg installed successfully."
+    apk add --no-cache nodejs npm && \
+    echo "ffmpeg and Node.js installed successfully."
+
+# Vérifier l'installation de Node.js et des modules
+RUN node -v && npm -v && echo "Node.js and npm are available."
+
+# Installer les modules Node.js supplémentaires si nécessaire
+RUN npm install fs child_process
 
 # Switch back to n8n user
 USER node
