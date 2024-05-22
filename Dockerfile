@@ -5,9 +5,9 @@ RUN echo "Starting to build Dockerfile..."
 
 # Install ffmpeg
 USER root
-RUN echo "Updating apt-get and installing ffmpeg..." && \
-    apt-get update && \
-    apt-get install -y ffmpeg && \
+RUN echo "Updating apk and installing ffmpeg..." && \
+    apk update && \
+    apk add --no-cache ffmpeg && \
     echo "ffmpeg installed successfully."
 
 # Switch back to n8n user
