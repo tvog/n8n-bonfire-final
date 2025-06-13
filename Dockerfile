@@ -5,11 +5,7 @@ RUN echo "Starting to build Dockerfile..."
 
 # Installer les dépendances nécessaires
 USER root
-RUN echo "Updating apk and installing ffmpeg and Node.js..." && \
-    apk update && \
-    apk add --no-cache ffmpeg && \
-    apk add --no-cache nodejs npm && \
-    echo "ffmpeg and Node.js installed successfully."
+#
 
 # Vérifier l'installation de Node.js et des modules
 RUN node -v && npm -v && echo "Node.js and npm are available."
