@@ -43,3 +43,6 @@ RUN echo "Encryption key set."
 RUN echo "Finished building Dockerfile."
 
 CMD ["n8n", "start"]
+
+# trigger rebuild
+
